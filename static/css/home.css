@@ -66,7 +66,7 @@ body.mobile-menu-open {
 .navbar-custom.scrolled {
     background-color: #000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    
+
 }
 
 .navbar-custom .navbar-brand {
@@ -438,6 +438,7 @@ body.mobile-menu-open {
     text-shadow: none;
     transition: color 0.3s ease;
 }
+
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 0 0 0 0;
     padding-top: 20px;
@@ -487,7 +488,8 @@ body.mobile-menu-open {
 }
 
 .btn-get-in-touch {
-    color: white; /* Removed !important to allow animation */
+    color: white;
+    /* Removed !important to allow animation */
     font-family: "DM Sans", sans-serif;
     padding: 0;
     border: none;
@@ -537,14 +539,29 @@ body.mobile-menu-open {
     border-radius: 50%;
     z-index: -1;
     transition: top 0.8s ease;
-    
+
 }
 
 @keyframes btnTextPulse {
-    0% { color: #ffffff; }
-    1% { color: #000000; } /* Turn black immediately */
-    40% { color: #000000; } /* Stay black while gray is rising */
-    100% { color: #ffffff; } /* Turn white when gray covers */
+    0% {
+        color: #ffffff;
+    }
+
+    1% {
+        color: #000000;
+    }
+
+    /* Turn black immediately */
+    40% {
+        color: #000000;
+    }
+
+    /* Stay black while gray is rising */
+    100% {
+        color: #ffffff;
+    }
+
+    /* Turn white when gray covers */
 }
 
 .btn-get-in-touch:hover {
@@ -552,13 +569,17 @@ body.mobile-menu-open {
 }
 
 .btn-get-in-touch:hover::after {
-    transform: scaleY(0); /* Reveal white background */
-    transition: transform 0s; /* Immediate transition */
+    transform: scaleY(0);
+    /* Reveal white background */
+    transition: transform 0s;
+    /* Immediate transition */
 }
 
 .btn-get-in-touch:hover::before {
-    top: -50%; /* Slide up gray background */
-    transition: top 0.8s ease 0.1s; /* Slight delay */
+    top: -50%;
+    /* Slide up gray background */
+    transition: top 0.8s ease 0.1s;
+    /* Slight delay */
 }
 
 /* Scroll reveal helper */
@@ -774,7 +795,7 @@ body.mobile-menu-open {
 .checklist li {
     display: flex;
     align-items: center;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     font-size: 16px;
 
     color: #333;
@@ -892,10 +913,12 @@ body.mobile-menu-open {
         opacity: 0.8;
         background-color: rgba(194, 133, 101, 0.35);
     }
+
     50% {
         opacity: 0.4;
         background-color: rgba(194, 133, 101, 0.25);
     }
+
     100% {
         width: 160px;
         height: 160px;
@@ -1028,10 +1051,8 @@ body.mobile-menu-open {
     width: auto;
     height: auto;
     animation: float-bob-x 6s ease-in-out infinite;
-    opacity: 0;
-    transform: translateX(-60px);
-    animation: wcuThumbSlideIn 1.4s ease forwards;
-    animation-delay: 0.5s;
+    opacity: 1;
+
 }
 
 .wcu-thumb .shape2 {
@@ -1095,9 +1116,9 @@ body.mobile-menu-open {
     }
 }
 
-.wcu-content {
+/* .wcu-content {
     padding-left: 30px;
-}
+} */
 
 .wcu-content .section-title {
     margin-bottom: 30px;
@@ -1144,32 +1165,36 @@ body.mobile-menu-open {
 
 .wcu-content .section-title p {
     font-size: 18px;
-    font-family: "DM Sans", sans-serif;
+    font-family: "Marcellus", serif;
+    font-weight: 300;
+
     color: #666;
-    line-height: 1.8;
+    line-height: 150%;
     margin-bottom: 0;
 }
 
 .wcu-content .box {
     background-color: #F8F5F2;
-    padding: 20px 25px;
+    padding: 20px 40px 20px 60px;
+    max-width: 482px;
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 30px 0;
+    margin-left: 40px;
     position: relative;
     overflow: visible;
 }
 
 .wcu-content .box .cir36 {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     flex-shrink: 0;
     animation: rotate-star 8s linear infinite;
-    margin-top: 0;
-    margin-left: 0;
-    align-self: center;
-    position: relative;
+    position: absolute;
+    left: -35px;
+    top: 10%;
+    transform: translateY(-50%);
     z-index: 1;
 }
 
@@ -1343,6 +1368,21 @@ body.mobile-menu-open {
     font-family: "DM Sans", sans-serif;
 }
 
+.service-card.style1 h6 {
+    position: relative;
+    margin-left: 40px;
+}
+
+.service-card.style1 h6::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -40px;
+    width: 30px;
+    height: 1px;
+    background: var(--title);
+}
+
 .service-card .icon {
     width: 80px;
     height: 80px;
@@ -1403,12 +1443,13 @@ body.mobile-menu-open {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 3.08px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
     font-family: "DM Sans", sans-serif;
 }
 
 .theme-btn-2:hover {
     color: var(--reluxe-brown);
+    letter-spacing: 6px;
 }
 
 /* Recent Projects Section */
@@ -1619,6 +1660,7 @@ body.mobile-menu-open {
     font-style: normal;
     font-weight: 400;
     line-height: 26.08px;
+    max-width: 300px;
 }
 
 .project-card.style1 .project-thumb .project-content .item a {
@@ -1638,11 +1680,7 @@ body.mobile-menu-open {
     transition: all 0.3s ease;
 }
 
-.project-card.style1 .project-thumb .project-content .item a:hover {
-    background-color: var(--theme);
-    color: var(--white);
-    transform: scale(1.1);
-}
+
 
 .project-card.style1 .project-thumb .project-content .item a i {
     font-size: 18px;
@@ -1712,7 +1750,7 @@ body.mobile-menu-open {
 
     .wcu-thumb.style1 .shape1 {
         width: 440px;
-        max-width:54%;
+        max-width: 54%;
         top: 60%;
         bottom: auto;
         transform: translate(-50%, -50%);
@@ -1726,6 +1764,7 @@ body.mobile-menu-open {
 
 /* Recent Projects - mobile adjustments */
 @media (max-width: 767px) {
+
     .project-section,
     .project-section .container,
     .project-section .slider-area,
@@ -1848,6 +1887,31 @@ body.mobile-menu-open {
     font-weight: 400;
     line-height: 57.6px;
     color: var(--white);
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.text-slider.text-style {
+    cursor: pointer;
+}
+
+.text-slider.text-style::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: width 0.4s ease;
+}
+
+.text-slider.text-style:hover {
+    opacity: 0.7;
+}
+
+.text-slider.text-style:hover::after {
+    width: 100%;
 }
 
 .marquee-wrapper .style-2 {
@@ -1997,6 +2061,7 @@ body.mobile-menu-open {
     transform: translateY(30px);
     animation: serviceTitleRise 1.1s ease forwards;
     animation-delay: 0.25s;
+    padding-bottom: 50px;
 }
 
 /* Explore Services Content */
@@ -2020,6 +2085,11 @@ body.mobile-menu-open {
     max-width: 400px;
 }
 
+/* Left Column - dịch sang trái */
+.fancy-content-wrapper:first-child {
+    transform: translateX(-20px);
+}
+
 /* Fancy Box Style1 */
 .fancy-box.style1 {
     display: flex;
@@ -2039,7 +2109,7 @@ body.mobile-menu-open {
 }
 
 .fancy-content-wrapper:first-child .fancy-box.style1:hover {
-    transform: translateX(5px);
+    transform: translateY(35px) translateX(-15px);
 }
 
 .fancy-content-wrapper:last-child .fancy-box.style1:hover {
@@ -2106,7 +2176,7 @@ body.mobile-menu-open {
     justify-content: center;
     border-radius: 50%;
     background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .fancy-box.style1 .fancy-item .icon img {
@@ -3458,7 +3528,7 @@ body.mobile-menu-open {
 
 .pricing-card.style1 .pricing-header .price h2 {
     font-family: "Marcellus", serif;
-    font-size: 40px;
+    font-size: 56px;
     font-weight: 400;
     color: #000;
     line-height: 1;
@@ -3495,18 +3565,19 @@ body.mobile-menu-open {
 .pricing-card.style1 .checklist li {
     display: flex;
     align-items: center;
-    padding: -15px 0;
+    padding: 2px 0;
     font-family: "DM Sans", sans-serif;
     font-size: 16px;
     color: #6E6E6E;
     border-bottom: none;
     font-weight: 400;
-    line-height: 26.08px;
+    line-height: 1;
+    margin-bottom: 0;
 }
 
 .pricing-card.style1 .checklist li .check-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: var(--reluxe-brown);
     display: flex;
@@ -3514,12 +3585,19 @@ body.mobile-menu-open {
     justify-content: center;
     margin-right: 12px;
     flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+    position: relative;
 }
 
 .pricing-card.style1 .checklist li .check-icon i {
     color: #fff;
     font-size: 11px;
     font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .pricing-card.style1 .checklist li span:last-child {
@@ -3796,7 +3874,8 @@ body {
 .single-footer-widget {
     margin-bottom: 40px;
 }
-.footer-widgets-wrapper .single-footer-widget .widget-head{
+
+.footer-widgets-wrapper .single-footer-widget .widget-head {
     margin-bottom: 30px;
 }
 
@@ -4032,7 +4111,8 @@ body {
     opacity: 0;
     transform: translateY(45px);
 }
-.footer-widgets-wrapper.style1{
+
+.footer-widgets-wrapper.style1 {
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -4240,13 +4320,14 @@ body {
 }
 
 @media (max-width: 1399px) {
-    body{
+    body {
         overflow-x: hidden;
         overflow-y: hidden;
     }
 }
+
 @media(max-width: 1199px) {
-    body{
+    body {
         overflow-x: hidden;
         overflow-y: hidden;
     }
@@ -4276,10 +4357,13 @@ body {
 .footer-top-logo::before {
     content: "";
     position: absolute;
-    left: -555px; /* tuỳ chỉnh theo layout */
-    width: 515px; /* giống như ảnh bạn inspect */
+    left: -555px;
+    /* tuỳ chỉnh theo layout */
+    width: 515px;
+    /* giống như ảnh bạn inspect */
     height: 2.5px;
-    top: 35px; /* giống hình bạn chụp */
+    top: 35px;
+    /* giống hình bạn chụp */
     background: #ffffff33;
 }
 
@@ -4293,6 +4377,7 @@ body {
     top: 35px;
     background: #ffffff33;
 }
+
 .footer-widgets-wrapper .single-footer-widget .widget-head h3::after {
     content: "";
     margin-left: 15px;
@@ -4304,6 +4389,7 @@ body {
     height: 2px;
     background-color: var(--white);
 }
+
 .footer-widgets-wrapper .single-footer-widget .widget-head h3::before {
     content: "";
     margin-left: 15px;
@@ -4315,170 +4401,206 @@ body {
     height: 2px;
     background-color: #F9F3F0;
 }
+
 @media (max-width: 1399px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         letter-spacing: 1px;
-    padding-right: 20px;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    
+        padding-right: 20px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+    }
 }
-}
-@media(max-width: 767px){
-    .hero-section .swiper-pagination{
+
+@media(max-width: 767px) {
+    .hero-section .swiper-pagination {
         bottom: 40px;
         margin-right: -150px;
-   }
+    }
 }
-@media(max-width: 991px){
+
+@media(max-width: 991px) {
     .services-section .section-title {
         margin-top: -50px;
     }
 }
-@media(max-width: 991px){
-    .services-section .subtitle{
+
+@media(max-width: 991px) {
+    .services-section .subtitle {
         letter-spacing: 3.52px;
     }
 }
+
 @media (max-width: 767px) {
-    .section-title-area .section-title h2{
+    .section-title-area .section-title h2 {
         font-size: 37px;
         line-height: 47.6px;
     }
 }
+
 @media (max-width: 767px) {
-    .arrow-button{
+    .arrow-button {
         display: none;
     }
 }
+
 @media (max-width: 767px) {
-    .cherry-blossom-decoration{
+    .cherry-blossom-decoration {
         display: none;
     }
 }
+
 @media (max-width: 767px) {
-    .fancy-content-wrapper{
+    .fancy-content-wrapper {
         align-items: center;
         padding-right: 40px;
     }
 }
+
 @media (max-width: 767px) {
-    .fancy-content-wrapper.bottom{
+    .fancy-content-wrapper.bottom {
         align-items: center;
         padding-left: 40px;
     }
 }
+
 @media (max-width: 767px) {
-.section-padding{
-    padding: 60px 0;
+    .section-padding {
+        padding: 60px 0;
+    }
 }
-}
+
 @media (max-width: 767px) {
-    .pricing-box.style1 .section-title h2{
+    .pricing-box.style1 .section-title h2 {
         font-size: 37px;
         line-height: 47.6px;
     }
 }
+
 @media (max-width: 767px) {
-    .recent-blogs-section .section-title-area .section-title h2{
+    .recent-blogs-section .section-title-area .section-title h2 {
         font-size: 37px;
         line-height: 47.6px;
         letter-spacing: 0px;
-        
+
     }
-    .footer-wrapper p{
+
+    .footer-wrapper p {
         font-size: 12px;
     }
+
     .brand-logo li a {
         font-size: 12px;
     }
-    .info-text-style{
+
+    .info-text-style {
         padding-left: -30px;
     }
-    .form-contl input{
-        max-width: 230px;;
+
+    .form-contl input {
+        max-width: 230px;
+        ;
     }
-    .list-area .title{
+
+    .list-area .title {
         display: inline;
     }
 }
-@media (max-width: 767px) {
-  .list-area li {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Khoảng cách giữa icon và text */
-  }
 
-  .list-area .title {
-    margin-bottom: 0; /* bỏ margin nếu đang đẩy xuống */
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .project-card.style1:hover .project-content{
-    display: none;
-  }
-  .single-footer-widget{
-    margin-bottom: 0px;
-  }
-  .intro-title{
-    letter-spacing: 0px;
-  }
-  .theme-btn{
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 100;
-    font-family: "DM Sans", sans-serif;
-    text-transform: none;
-  }
+@media (max-width: 767px) {
+    .list-area li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        /* Khoảng cách giữa icon và text */
+    }
+
+    .list-area .title {
+        margin-bottom: 0;
+        /* bỏ margin nếu đang đẩy xuống */
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .project-card.style1:hover .project-content {
+        display: none;
+    }
+
+    .single-footer-widget {
+        margin-bottom: 0px;
+    }
+
+    .intro-title {
+        letter-spacing: 0px;
+    }
+
+    .theme-btn {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 100;
+        font-family: "DM Sans", sans-serif;
+        text-transform: none;
+    }
 }
 
-.row>*{
+.row>* {
     margin-top: 0;
 }
+
 @media (max-width: 576px) {
-    .wcu-content .section-title{
+    .wcu-content .section-title {
         margin-top: 50px;
     }
-    .marquee-item .text-style{
+
+    .marquee-item .text-style {
         font-size: 36px;
     }
-    .fancy-content-wrapper{
+
+    .fancy-content-wrapper {
         padding-top: 40px;
         padding-bottom: 20px;
     }
-    .fancy-box.style1 .fancy-item p{
+
+    .fancy-box.style1 .fancy-item p {
         font-size: 16px
     }
-.fancy-box.style1 .fancy-item h4 {
-    font-size: 24px;
-    max-width: 240px;
-    width: 100%;
-}
-.fancy-content-wrapper{
-    padding-right: 15px;
-}
-.fancy-content-wrapper.bottom{
-    padding-left: 15px;
-}
-    .team-button{
+
+    .fancy-box.style1 .fancy-item h4 {
+        font-size: 24px;
+        max-width: 240px;
+        width: 100%;
+    }
+
+    .fancy-content-wrapper {
+        padding-right: 15px;
+    }
+
+    .fancy-content-wrapper.bottom {
+        padding-left: 15px;
+    }
+
+    .team-button {
         padding-top: 20px;
     }
-    .pricing-thumb.style1 .thumb img{
+
+    .pricing-thumb.style1 .thumb img {
         margin-right: 3px;
         margin-left: 3px;
     }
 }
+
 /* --- Custom cursor (dot + ring) ---
    Dán đoạn này vào cuối home.css
    Nếu không muốn ẩn con trỏ toàn cục, bỏ/comment dòng cursor:none */
-:root{
-  --cursor-dot-size: 5px;
-  --cursor-ring-size: 30px;
-  --dot-color: #bdb6b6; ;
-  --ring-bg: rgba(255,255,255,0.06);
-  --ring-border: rgba(93, 91, 91, 0.14);
+:root {
+    --cursor-dot-size: 5px;
+    --cursor-ring-size: 30px;
+    --dot-color: #bdb6b6;
+    ;
+    --ring-bg: rgba(255, 255, 255, 0.06);
+    --ring-border: rgba(93, 91, 91, 0.14);
 }
 
 /* Ẩn con trỏ mặc định (bật/tắt tuỳ ý) */
@@ -4489,211 +4611,259 @@ body {
 /* Con trỏ custom */
 .cursor-dot,
 .cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  transform: translate3d(-50%,-50%,0);
-  will-change: transform, opacity;
-  z-index: 9999;
-  transition: transform 0.12s ease-out, opacity 0.18s ease-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform, opacity;
+    z-index: 9999;
+    transition: transform 0.12s ease-out, opacity 0.18s ease-out;
 }
 
 /* dot ở giữa */
 .cursor-dot {
-  width: var(--cursor-dot-size);
-  height: var(--cursor-dot-size);
-  border-radius: 50%;
-  background: var(--dot-color);
-  box-shadow: 0 0 8px rgba(255,255,255,0.12);
-  transform: translate3d(-50%,-50%,0) scale(1);
-  opacity: 1;
+    width: var(--cursor-dot-size);
+    height: var(--cursor-dot-size);
+    border-radius: 50%;
+    background: var(--dot-color);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.12);
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    opacity: 1;
 }
 
 /* vòng ring */
 .cursor-ring {
-  width: var(--cursor-ring-size);
-  height: var(--cursor-ring-size);
-  border-radius: 50%;
-  background: var(--ring-bg);
-  border: 1px solid var(--ring-border);
-  transform: translate3d(-50%,-50%,0) scale(1);
-  transition: transform 0.18s cubic-bezier(.2,.9,.2,1), opacity 0.2s ease;
-  opacity: 1;
+    width: var(--cursor-ring-size);
+    height: var(--cursor-ring-size);
+    border-radius: 50%;
+    background: var(--ring-bg);
+    border: 1px solid var(--ring-border);
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    transition: transform 0.18s cubic-bezier(.2, .9, .2, 1), opacity 0.2s ease;
+    opacity: 1;
 }
 
 /* trạng thái hover trên phần tử interactive */
 .cursor-hover .cursor-ring {
-  transform: translate3d(-50%,-50%,0) scale(1.45);
-  background: rgba(255,255,255,0.04);
+    transform: translate3d(-50%, -50%, 0) scale(1.45);
+    background: rgba(255, 255, 255, 0.04);
 }
+
 .cursor-hover .cursor-dot {
-  transform: translate3d(-50%,-50%,0) scale(0.85);
-  opacity: 0.95;
+    transform: translate3d(-50%, -50%, 0) scale(0.85);
+    opacity: 0.95;
 }
 
 /* trạng thái nhấn chuột */
 .cursor-click .cursor-ring {
-  transform: translate3d(-50%,-50%,0) scale(0.85);
-  opacity: 0.9;
+    transform: translate3d(-50%, -50%, 0) scale(0.85);
+    opacity: 0.9;
 }
 
 /* desktop-only: ẩn custom cursor trên thiết bị cảm ứng */
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-  html, body { cursor: auto !important; }
+@media (hover: none),
+(pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    html,
+    body {
+        cursor: auto !important;
+    }
 }
+
 /* --- Custom cursor: add these rules to your home.css --- */
 /* đảm bảo phần dot/ring có transition cho width/height/background/transform */
-.cursor-dot{
-  width: 5px;              /* dot mặc định */
-  height: 5px;
-  transition: transform 260ms cubic-bezier(.2,.9,.2,1),
-              width 260ms cubic-bezier(.2,.9,.2,1),
-              height 260ms cubic-bezier(.2,.9,.2,1),
-              background-color 200ms ease,
-              opacity 200ms ease;
-  background: var(--dot-color, #fff);
-  z-index: 99999;
+.cursor-dot {
+    width: 5px;
+    /* dot mặc định */
+    height: 5px;
+    transition: transform 260ms cubic-bezier(.2, .9, .2, 1),
+        width 260ms cubic-bezier(.2, .9, .2, 1),
+        height 260ms cubic-bezier(.2, .9, .2, 1),
+        background-color 200ms ease,
+        opacity 200ms ease;
+    background: var(--dot-color, #fff);
+    z-index: 99999;
 }
 
 /* khi mở rộng thành circle (hover target) */
 .cursor-expanded .cursor-dot {
-  /* width/height sẽ được set trực tiếp bằng JS, CSS chỉ cung cấp transition */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    /* width/height sẽ được set trực tiếp bằng JS, CSS chỉ cung cấp transition */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
 /* khi expanded thì ring ẩn mờ */
 .cursor-expanded .cursor-ring {
-  opacity: 0;
-  transition: opacity 180ms ease;
+    opacity: 0;
+    transition: opacity 180ms ease;
 }
 
 /* tuỳ chọn: thêm lớp để điều chỉnh border-radius/blur của circle */
 .cursor-dot.fill {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 /* nếu muốn hiệu ứng nền mờ phía sau (như ảnh), bạn có thể dùng filter/blend */
 .cursor-dot.fill.soft {
-  background-blend-mode: normal;
-  opacity: 0.95;
+    background-blend-mode: normal;
+    opacity: 0.95;
 }
 
 /* giữ media query tắt custom cursor trên touch */
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-  html, body { cursor: auto !important; }
+@media (hover: none),
+(pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    html,
+    body {
+        cursor: auto !important;
+    }
 }
+
 /* --- Cursor: compact & softer expanded circle --- */
-.cursor-dot{
-  width: 5px;
-  height: 5px;
-  transition: transform 260ms cubic-bezier(.2,.9,.2,1),
-              width 260ms cubic-bezier(.2,.9,.2,1),
-              height 260ms cubic-bezier(.2,.9,.2,1),
-              background-color 200ms ease,
-              opacity 200ms ease;
-  background: var(--dot-color, #fff);
-  z-index: 99999;
-  opacity: 1;
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    transition: transform 260ms cubic-bezier(.2, .9, .2, 1),
+        width 260ms cubic-bezier(.2, .9, .2, 1),
+        height 260ms cubic-bezier(.2, .9, .2, 1),
+        background-color 200ms ease,
+        opacity 200ms ease;
+    background: var(--dot-color, #fff);
+    z-index: 99999;
+    opacity: 1;
 }
 
 /* khi expanded: nhỏ hơn, mờ hơn, shadow nhẹ */
 .cursor-expanded .cursor-dot {
-  /* kích thước thực tế được set bằng JS; CSS cung cấp transition và style bổ trợ */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04); /* nhẹ hơn */
-  opacity: 0.95;
+    /* kích thước thực tế được set bằng JS; CSS cung cấp transition và style bổ trợ */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    /* nhẹ hơn */
+    opacity: 0.95;
 }
 
 /* khi expanded thì ring ẩn nhẹ */
 .cursor-expanded .cursor-ring {
-  opacity: 0;
-  transition: opacity 160ms ease;
+    opacity: 0;
+    transition: opacity 160ms ease;
 }
 
 /* class để đảm bảo shape là circle khi fill */
 .cursor-dot.fill {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 /* nếu muốn class soft cho opacity tổng thể (tùy chọn) */
 .cursor-dot.fill.soft {
-  opacity: 0.95;
+    opacity: 0.95;
 }
 
 /* giữ media query tắt custom cursor trên touch */
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-  html, body { cursor: auto !important; }
+@media (hover: none),
+(pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    html,
+    body {
+        cursor: auto !important;
+    }
 }
+
 /* Custom cursor: default small dot + ring */
-.cursor-dot{
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--dot-color, #fff);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1),
-              width 220ms cubic-bezier(.2,.9,.2,1),
-              height 220ms cubic-bezier(.2,.9,.2,1),
-              background-color 200ms ease,
-              opacity 180ms ease,
-              box-shadow 180ms ease;
-  z-index: 99999;
-  pointer-events: none;
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--dot-color, #fff);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 220ms cubic-bezier(.2, .9, .2, 1),
+        width 220ms cubic-bezier(.2, .9, .2, 1),
+        height 220ms cubic-bezier(.2, .9, .2, 1),
+        background-color 200ms ease,
+        opacity 180ms ease,
+        box-shadow 180ms ease;
+    z-index: 99999;
+    pointer-events: none;
 }
 
 /* thin ring around pointer */
-.cursor-ring{
-  width: 35px;    /* ring mặc định */
-  height: 35px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(35, 32, 32, 0.1);
-  transition: transform 180ms cubic-bezier(.2,.9,.2,1), opacity 160ms ease;
-  z-index: 99998;
-  pointer-events: none;
+.cursor-ring {
+    width: 35px;
+    /* ring mặc định */
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(35, 32, 32, 0.1);
+    transition: transform 180ms cubic-bezier(.2, .9, .2, 1), opacity 160ms ease;
+    z-index: 99998;
+    pointer-events: none;
 }
 
 /* khi hover phần tử interactive (scale nhẹ) */
-.cursor-hover .cursor-ring{
-  transform: translate3d(-50%,-50%,0) scale(1.35);
+.cursor-hover .cursor-ring {
+    transform: translate3d(-50%, -50%, 0) scale(1.35);
 }
-.cursor-hover .cursor-dot{
-  transform: translate3d(-50%,-50%,0) scale(0.9);
+
+.cursor-hover .cursor-dot {
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
 }
 
 /* Khi đang ở trạng thái expanded: hide ring, dot là một diện phủ mờ */
 .cursor-expanded .cursor-ring {
-  opacity: 0 !important;
-  display: none !important; /* ẩn hoàn toàn vòng cũ */
+    opacity: 0 !important;
+    display: none !important;
+    /* ẩn hoàn toàn vòng cũ */
 }
+
 .cursor-expanded .cursor-dot {
-  /* box-shadow và border sẽ bị loại để không có "vòng nhỏ" bên trong */
-  box-shadow: none !important;
-  border: none !important;
-  /* kích thước và màu sẽ được set inline bởi JS; CSS chỉ đảm bảo transition mượt */
-  border-radius: 50%;
+    /* box-shadow và border sẽ bị loại để không có "vòng nhỏ" bên trong */
+    box-shadow: none !important;
+    border: none !important;
+    /* kích thước và màu sẽ được set inline bởi JS; CSS chỉ đảm bảo transition mượt */
+    border-radius: 50%;
 }
 
 /* media: tắt custom cursor trên touch */
-@media (hover: none), (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-  html, body { cursor: auto !important; }
+@media (hover: none),
+(pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    html,
+    body {
+        cursor: auto !important;
+    }
 }
 
-.ms-auto{
+.ms-auto {
     margin-left: 190px !important;
 }
 
-.navbar-collapse{
+.navbar-collapse {
     padding-top: 3px;
 }
-.checklist span{
+
+.checklist span {
     padding-left: 15px;
     color: #6E6E6E;
 }
+
 .video-box h4 {
     color: var(--title);
     font-family: "Marcellus", serif;
@@ -4702,3 +4872,5 @@ body {
     font-weight: 400;
     line-height: 35.04px;
 }
+
+
