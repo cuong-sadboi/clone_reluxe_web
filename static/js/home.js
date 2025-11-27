@@ -183,46 +183,73 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize Projects Carousel
-    if (typeof Swiper !== 'undefined') {
-        var projectSwiper = new Swiper('.projectSliderOne', {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 40,
-            loop: false,
-            initialSlide: 3, // Bắt đầu từ ảnh 4 (index 3)
-            autoplay: {
-                delay: 1500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: false,
-            },
-            navigation: {
-                nextEl: '.arrow-next',
-                prevEl: '.arrow-prev',
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1,
-                    spaceBetween: 16,
-                },
-                768: {
-                    slidesPerView: 'auto',
-                    spaceBetween: 30,
-                }
-            },
-            speed: 800,
-            effect: 'slide',
-            on: {
-                slideChange: function() {
-                    // Khi đến slide 6 (index 5), chuyển nhanh về slide 4 (index 3)
-                    if (this.activeIndex === 5) {
-                        setTimeout(function() {
-                            projectSwiper.slideTo(3, 300); // Chuyển nhanh với speed 300ms
-                        }, 1500); // Đợi 1.5 giây sau khi hiển thị slide 6
-                    }
-                }
-            }
-        });
-    }
+if (typeof Swiper !== 'undefined') {
+    var projectSwiper = new Swiper('.projectSliderOne', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 40,
+        loop: false,
+        initialSlide: 3, // bắt đầu từ slide 4
+        speed: 1500,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+        },
+        navigation: {
+            nextEl: '.arrow-next',
+            prevEl: '.arrow-prev',
+        },
+        slidesPerGroup: 1,      // Chỉ trượt 1 slide mỗi lần
+        simulateTouch: true,    // Cho phép kéo bằng chuột
+        touchRatio: 1,          // Tỷ lệ kéo mặc định
+        breakpoints: {
+            0: { slidesPerView: 1, spaceBetween: 16 },
+            768: { slidesPerView: 'auto', spaceBetween: 30 }
+        },
+    });
+
+      // --- Chặn NEXT/PREV trong lúc slide đang chuyển ---
+    projectSwiper.on('slideChangeTransitionStart', function () {
+        projectSwiper.allowSlideNext = false;
+        projectSwiper.allowSlidePrev = false;
+    });
+    // --- Logic vòng lặp ---
+    projectSwiper.on('slideChangeTransitionEnd', function () {
+        projectSwiper.allowSlideNext = true;
+        projectSwiper.allowSlidePrev = true;
+        const i = projectSwiper.activeIndex;
+
+        // Khi tới slide 6 (index 5) → nhảy tức thì về slide 3 (index 2)
+        if (i === 5) {
+            projectSwiper.setTransition(0);
+            projectSwiper.slideTo(2, 0); // nhảy tức thì
+            setTimeout(() => projectSwiper.setTransition(800), 20);
+        }
+
+        // Khi tới slide 2 (index 1) do bấm PREV → nhảy tức thì về slide 5 (index 4)
+        if (i === 1) {
+            projectSwiper.setTransition(0);
+            projectSwiper.slideTo(4, 0);
+            setTimeout(() => projectSwiper.setTransition(800), 20);
+        }
+        if (i === 2) {
+            // Ở đây chỉ cần chắc chắn transition mượt và autoplay không bị dừng
+            projectSwiper.setTransition(0);
+            projectSwiper.autoplay.start();
+        }
+        if (i === 0 || i === 6) {
+            projectSwiper.setTransition(0);
+            projectSwiper.slideTo(3, 0);
+            setTimeout(() => projectSwiper.setTransition(800), 20);
+        }
+    });
+
+}
+
+
+
+
     
     // Client Logos Drag Functionality
     var logosWrapper = document.querySelector('.client-logos-wrapper');
